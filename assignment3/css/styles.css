@@ -1,0 +1,19 @@
+body {
+	font-family: Helvetica, sans-serif;
+	color: #5e5e5e;
+}
+
+#bs-example-navbar-collapse-1 > ul {
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: white;
+}
+
+#bs-example-navbar-collapse-1 li {
+	border-top: 1px solid #e7e7e7;
+}
+
+section {
+	background-color: #f8f8f8;
+	padding: 10px;
+}
