@@ -17,3 +17,8 @@ section {
 	background-color: #f8f8f8;
 	padding: 10px;
 }
+
+.col-md-4, .col-sm-6, .col-sm-12, .col-xs-12 {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
