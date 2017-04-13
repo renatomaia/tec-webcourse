@@ -1,8 +1,16 @@
-var helloSpeaker = {};
-(function () {
+"use strict";
+
+var helloSpeaker = (function () {
+  // imported definitions
+  var log = console.log;
+
+  // private definitions
   var speakWord = "Hello";
-  helloSpeaker.speak = function (name) {
-    console.log(speakWord + " " + name);
+
+  // exported definitions
+  return {
+    speak: function (name) {
+      log(speakWord + " " + name);
+    }
   }
 })();
-

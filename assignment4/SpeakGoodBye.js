@@ -1,8 +1,16 @@
-var byeSpeaker = {};
-(function () {
+"use strict";
+
+var byeSpeaker = (function () {
+  // imported definitions
+  var log = console.log;
+
+  // private definitions
   var speakWord = "Good Bye";
-  byeSpeaker.speak = function (name) {
-    console.log(speakWord + " " + name);
+
+  // exported definitions
+  return {
+    speak: function (name) {
+      log(speakWord + " " + name);
+    }
   }
 })();
-
