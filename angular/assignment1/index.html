@@ -19,6 +19,11 @@
 					placeholder="list comma separated dishes you usually have for lunch"
 					class="form-control"
 					ng-model="input">
+				<p>
+					Use comma (<kbd>,</kbd>) to separate items.
+					Empty items are not considered.
+					(<i>e.g.</i> <kbd>bread,,wine</kbd> count only as two items.)
+				</p>
 			</div>
 			<div class="form-group">
 				<button class="btn btn-default" ng-click="checkInput();">
