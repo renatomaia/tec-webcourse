@@ -1,6 +1,21 @@
-<ol>
-	<li ng-repeat="item in foundItems">
-		{{ item.name }}
-		<button ng-click="onRemove({index: $index});">Remove Item</button>
-	</li>
-</ol>
+<div ng-if="foundItems !== undefined">
+	<table class="table" ng-if="foundItems.length>0">
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>Description</th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="item in foundItems">
+			<td>{{ item.short_name }}</td>
+			<td>{{ item.name }}</td>
+			<td>{{ item.description }}</td>
+			<td>
+				<button class="btn" ng-click="onRemove({index: $index});">
+					Don't want this one!
+				</button>
+			</td>
+		</tr>
+	</table>
+	<strong ng-if="foundItems.length===0">Nothing found.</strong>
+</div>

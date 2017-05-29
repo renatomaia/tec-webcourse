@@ -3,16 +3,16 @@
 angular.module('NarrowItDownApp', [])
 .service('MenuSearchService', MenuSearchService)
 .controller('NarrowItDownController', NarrowItDownController)
-.directive('foundItems', FoundItemsDirective);
+.directive('foundItems', FoundItemsDirective)
+.constant('menuItemsUrl', 'https://davids-restaurant.herokuapp.com/menu_items.json');
 
-MenuSearchService.$inject = ['$http'];
-function MenuSearchService($http) {
+MenuSearchService.$inject = ['$http', 'menuItemsUrl'];
+function MenuSearchService($http, url) {
 	return {
 		getMatchedMenuItems: function (searchItem) {
 			searchItem = searchItem.toLowerCase();
 			return $http({
-				method: 'GET',
-				url: 'https://davids-restaurant.herokuapp.com/menu_items.json',
+				url: url,
 			}).then(function (result) {
 				var foundItems = [];
 				var menuItems = result.data.menu_items;
@@ -30,13 +30,16 @@ function MenuSearchService($http) {
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(search) {
 	var ctrl = this;
-	ctrl.foundItems = [];
 	ctrl.narrowItDown = function () {
-		search.getMatchedMenuItems(ctrl.searchItem).then(function (foundItems) {
-			ctrl.found = foundItems;
-		}, function (error) {
-			console.log(error);
-		});
+		if (ctrl.searchItem === undefined || ctrl.searchItem == "") {
+			ctrl.found = [];
+		} else {
+			search.getMatchedMenuItems(ctrl.searchItem).then(function (foundItems) {
+				ctrl.found = foundItems;
+			}, function (error) {
+				console.log(error);
+			});
+		}
 	};
 	ctrl.removeItem = function (index) {
 		ctrl.found.splice(index, 1);
