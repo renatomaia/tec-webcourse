@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Menu Inspector</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="lib/bootstrap.min.css">
+		<script src="lib/angular.min.js"></script>
+		<script src="lib/angular-ui-router.min.js"></script>
+		<script src="ng/menudata.js"></script>
+		<script src="ng/menuapp/module.js"></script>
+		<script src="ng/menuapp/html-tag/categories/definition.js"></script>
+		<script src="ng/menuapp/html-tag/items/definition.js"></script>
+		<script src="ng/menuapp/ui-state/home/definition.js"></script>
+		<script src="ng/menuapp/ui-state/categories/definition.js"></script>
+	</head>
+	<body ng-app="MenuApp">
+		<div class="container">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default" ui-sref="home">
+					Home
+				</button>
+				<button type="button" class="btn btn-default" ui-sref="categories">
+					Menu
+				</button>
+			</div>
+			<ui-view></ui-view>
+		</div>
+	</body>
+</html>
