@@ -1,10 +1,6 @@
 (function () { 'use strict';
 
-angular.module('MenuApp')
-	.config(ViewStateConfig)
-	.controller('MenuAppCategoryListViewCtrl', ListViewCtrl)
-	.controller('MenuAppCategoryItemsViewCtrl', ItemsViewCtrl)
-;
+angular.module('MenuApp').config(ViewStateConfig);
 
 ViewStateConfig.$inject = ['$stateProvider'];
 function ViewStateConfig($stateProvider) {
@@ -12,7 +8,8 @@ function ViewStateConfig($stateProvider) {
 		.state('categories', {
 			url: '/categories',
 			templateUrl: 'ng/menuapp/ui-state/categories/template/list.html',
-			controller: 'MenuAppCategoryListViewCtrl as catsView',
+			controller: ListViewCtrl,
+			controllerAs: 'catsView',
 			resolve: {
 				categories: [ 'MenuDataService',
 					function (MenuDataService) {
@@ -24,7 +21,8 @@ function ViewStateConfig($stateProvider) {
 		.state('categories.items', {
 			url: '/{category}/items',
 			templateUrl: 'ng/menuapp/ui-state/categories/template/items.html',
-			controller: 'MenuAppCategoryItemsViewCtrl as itemsView',
+			controller: ItemsViewCtrl,
+			controllerAs: 'itemsView',
 			resolve: {
 				categoryItems: [ '$stateParams', 'MenuDataService',
 					function ($stateParams, MenuDataService) {
