@@ -1,0 +1,7 @@
+table.table-hover .tab-btn-onhover {
+	visibility: hidden;
+}
+table.table-hover tr:hover .tab-btn-onhover {
+	visibility: visible;
+}
+

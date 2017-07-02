@@ -1,0 +1,146 @@
+<form class="form-horizontal" name="expForm" novalidate>
+	<div class="form-group">
+		<label for="inputTitle" class="col-sm-1 control-label">Título</label>
+		<div class="col-sm-11">
+			<input type="text" 
+			       class="form-control"
+			       id="inputTitle"
+			       placeholder="Título">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputStartYear" class="col-xs-12 col-sm-1 control-label">Início</label>
+		<div class="col-xs-4 col-sm-2">
+			<input type="number" min="1900"
+			       class="form-control"
+			       id="inputStartYear"
+			       name="inputStartYear"
+			       data-ng-model="startYear"
+			       placeholder="Ano">
+		</div>
+		<div class="col-xs-4 col-sm-2">
+			<input type="number" min="1" max="12"
+			       class="form-control"
+			       id="inputStartMonth"
+			       name="inputStartMonth"
+			       data-ng-model="startMonth"
+			       data-ng-if="expForm.inputStartYear.$viewValue"
+			       placeholder="Mês">
+		</div>
+		<div class="col-xs-4 col-sm-2">
+			<input type="number" min="1" max="31"
+			       class="form-control"
+			       id="inputStartDay"
+			       data-ng-model="startDay"
+			       data-ng-if="expForm.inputStartMonth.$viewValue"
+			       placeholder="Dia">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputEndYear"
+		       class="col-xs-12 col-sm-1 control-label">Fim</label>
+		<div class="col-xs-4 col-sm-2">
+			<input type="number" min="1900"
+			       class="form-control"
+			       id="inputEndYear"
+			       name="inputEndYear"
+			       data-ng-model="endYear"
+			       placeholder="Ano">
+		</div>
+		<div class="col-xs-4 col-sm-2">
+			<input type="number" min="1" max="12"
+			       class="form-control"
+			       id="inputEndMonth"
+			       name="inputEndMonth"
+			       data-ng-model="endMonth"
+			       data-ng-if="expForm.inputEndYear.$viewValue"
+			       placeholder="Mês">
+		</div>
+		<div class="col-xs-4 col-sm-2">
+			<input type="number" min="1" max="31"
+			       class="form-control"
+			       id="inputEndDay"
+			       data-ng-model="endDay"
+			       data-ng-if="expForm.inputEndMonth.$viewValue"
+			       placeholder="Dia">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputDesc" class="col-sm-1 control-label">Desc.</label>
+		<div class="col-sm-11">
+			<textarea class="form-control"
+			          rows="8"
+			          id="inputDesc">
+			</textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-1 col-sm-11">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Assuntos
+					<button type="button"
+					        class="btn btn-default btn-xs glyphicon glyphicon-plus pull-right"
+					        data-toggle="modal"
+					        data-target="#themeModal">
+					</button>
+				</div>
+				<div class="list-group">
+					<div class="list-group-item"
+					     data-ng-repeat="theme in ['C++','Java','Lua']">
+						<span class="label label-default">{{theme}}</span>
+						&nbsp;&nbsp;&nbsp;Linguagem de programação {{theme}}
+						<button type="button" class="close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+				<!--
+				<table class="table">
+					<tr data-ng-repeat="theme in ['C','C++','Java','JavaScript','Lua']"data-ng-repeat="theme in ['C++','Java','Lua']">
+						<td class="text-right">
+							<a class="label label-default">
+								{{theme}}
+							</a>
+						</td>
+						<td>
+							Linguagem de programação {{theme}}
+						</td>
+						<td class="text-right">
+							<button type="button" class="close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</td>
+					</tr>
+				</table>
+				-->
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-1 col-sm-11">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Projetos
+					<button type="button" class="btn btn-default btn-xs glyphicon glyphicon-plus pull-right"></button>
+				</div>
+				<div class="list-group">
+					<div class="list-group-item"
+					     data-ng-repeat="proj in ['OpenBus','CSBase']">
+						<span class="label label-default">{{proj}}</span>
+						<button type="button" class="close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-1 col-sm-11">
+			<button type="button" class="btn btn-primary" data-ui-sref="expertise">Salvar</button>
+			<button type="button" class="btn btn-default" data-ui-sref="expertise">Cancelar</button>
+		</div>
+	</div>
+</form>

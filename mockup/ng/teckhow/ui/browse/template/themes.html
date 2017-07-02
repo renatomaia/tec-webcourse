@@ -1,0 +1,87 @@
+<div class="well">
+	<div class="container">
+		<form class="form-inline">
+			<div class="form-group">
+				<input type="text"
+							 class="form-control"
+							 id="inputSearch"
+							 value="linguagem script"
+							 placeholder="Filtro">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox">
+						Incluir Sub-temas
+					</label>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<ol class="breadcrumb">
+	<li><a class="label label-default" href="#"><span class="glyphicon glyphicon-globe"></span></a></li>
+	<li><a class="label label-default" href="#">CompSci</a></li>
+	<li class="active"><span class="label label-default">ProgLang</span></li>
+</ol>
+<!-- Table -->
+<table class="table table-hover">
+	<tr>
+		<th class="text-right"></th>
+		<th>Assunto</th>
+		<th class="text-center">
+			<span class="hidden-xs">Experiências</span>
+			<span class="visible-xs">Exp.</span>
+		</th>
+		<th class="text-center">
+			<span class="hidden-xs">Pessoas</span>
+			<span class="visible-xs">Pess.</span>
+		</th>
+		<th class="text-center">
+			<span class="hidden-xs">Projetos</span>
+			<span class="visible-xs">Proj.</span>
+		</th>
+		<th class="text-center">
+			<span class="hidden-xs">Sub-temas</span>
+			<span class="visible-xs">Sub.</span>
+		</th>
+	</tr>
+	<tr data-ng-repeat="theme in ['Erlang','JavaScript','Lisp','Lua','Perl','PHP','Python','Ruby','Scheme','VBScript']">
+		<td class="text-right">
+			<span class="label label-default">{{theme}}</span>
+		</td>
+		<td>
+			Linguagem de scripting {{theme}}
+		</td>
+		<td class="text-center">
+			<a data-toggle="modal"
+				 data-target="#foundModal"
+				 class="badge">
+				{{20-($index+theme.length)}}
+			</a>
+		</td>
+		<td class="text-center">
+			<a class="badge"
+				 ui-sref="browse.people">
+				{{$index+theme.length-5}}
+			</a>
+		</td>
+		<td class="text-center">
+			<span class="badge">{{theme.length+($index%2?-3:-1)}}</span>
+		</td>
+		<td class="text-center">
+			<span class="badge">{{(theme.length%2===0)?(10-theme.length):0}}</span>
+		</td>
+	</tr>
+</table>
+<ul class="pagination">
+	<li>
+		<a href="#" aria-label="Previous">
+			<span aria-hidden="true">&laquo;</span>
+		</a>
+	</li>
+	<li class="active"><a href="#">1</a></li>
+	<li>
+		<a href="#" aria-label="Next">
+			<span aria-hidden="true">&raquo;</span>
+		</a>
+	</li>
+</ul>

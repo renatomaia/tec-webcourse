@@ -1,0 +1,88 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-9">
+		<div class="well well-sm">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-6 col-md-10">
+						<h4>Experiência</h4>
+					</div>
+					<div class="col-xs-6 col-md-2">
+						<div class="btn-group pull-right" role="group">
+							<span class="btn-group visible-xs-inline"
+										role="group">
+								<button class="btn btn-default glyphicon glyphicon-filter dropdown-toggle"
+												type="button"
+												id="themesDropdown"
+												data-toggle="dropdown">
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#" data-ng-repeat="theme in themes">
+											{{theme}}
+											<span class="badge">{{count[theme]}}</span>
+										</a>
+									</li>
+								</ul>
+							</span>
+							<button type="button"
+							        class="btn btn-default glyphicon glyphicon-plus"
+							        ui-sref="exp-view">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<table class="table table-hover">
+			<tr>
+				<th></th>
+				<th>Data</th>
+				<th>Título</th>
+				<th>Assuntos</th>
+				<th class="text-center">Desc.</th>
+			</tr>
+			<tr data-ng-repeat="exp in experience">
+				<td>
+					<button type="button" class="close tab-btn-onhover" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</td>
+				<td>
+					{{exp.date}}
+				</td>
+				<td>
+					{{exp.title}}
+				</td>
+				<td>
+					<span class="label label-default"
+					      style="display: inline-block"
+					      data-ng-repeat="theme in exp.themes">
+						{{theme}}
+					</span>
+				</td>
+				<td class="text-center">
+					<span class="glyphicon glyphicon-ok" data-ng-show="exp.description!==undefined"></span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-sm-3 hidden-xs">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Assuntos
+				<span class="caret"></span>
+				<button type="button"
+					      class="btn btn-default btn-xs glyphicon glyphicon-plus pull-right"
+					      data-toggle="modal"
+					      data-target="#themeModal">
+				</button>
+			</div>
+			<div class="list-group">
+				<a class="list-group-item"
+				   data-ng-repeat="theme in themes">
+					{{theme}}
+					<span class="badge">{{count[theme]}}</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

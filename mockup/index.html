@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TecKHow</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="http://unpkg.com/angular-ui-router@latest/release/angular-ui-router.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<script src="ng/teckhow/module.js"></script>
+		<script src="ng/teckhow/ui/exp-list/definition.js"></script>
+		<script src="ng/teckhow/ui/exp-view/definition.js"></script>
+		<script src="ng/teckhow/ui/found-view/definition.js"></script>
+		<script src="ng/teckhow/ui/theme-view/definition.js"></script>
+		<script src="ng/teckhow/ui/proj-view/definition.js"></script>
+		<script src="ng/teckhow/ui/browse/definition.js"></script>
+		<script src="ng/teckhow/ui/manage/definition.js"></script>
+	</head>
+	<body data-ng-app="TecKHow">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand glyphicon glyphicon-book" href="#">
+							TecKHow
+						</a>
+					</div>
+					<div class="collapse navbar-collapse" id="main-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li data-ui-sref-active="active"><a data-ui-sref="exp-list">Registrar</a></li>
+							<li data-ui-sref-active="active"><a data-ui-sref="browse.search">Pesquisar</a></li>
+							<li data-ui-sref-active="active"><a data-ui-sref="manage.themes">Organizar</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#" class="glyphicon glyphicon-wrench"></a></li>
+							<li><a href="#" class="glyphicon glyphicon-question-sign"></a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<ui-view></ui-view>
+
+			<!-- Modal -->
+			<div class="modal fade" id="themeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Adicionar Assuntos</h4>
+						</div>
+						<div class="modal-body">
+							<ol class="breadcrumb">
+								<li><a class="label label-default" href="#"><span class="glyphicon glyphicon-globe"></span></a></li>
+								<li><a class="label label-default" href="#">CompSci</a></li>
+								<li class="active"><span class="label label-default">ProgLang</span></li>
+							</ol>
+							<div class="panel-group"
+									 id="accordion"
+									 role="tablist"
+									 aria-multiselectable="true">
+								<!-- Search -->
+								<div class="panel panel-default">
+									<div class="panel-heading"
+											 role="tab" id="headingSearchTheme"
+											 data-toggle="collapse"
+											 data-parent="#accordion"
+											 data-target="#collapseSearchTheme">
+										Selecionar
+									</div>
+									<div id="collapseSearchTheme"
+											 class="panel-collapse collapse in"
+											 role="tabpanel"
+											 aria-labelledby="headingSearchTheme">
+										<div class="panel-body">
+											<div class="row" style="margin-bottom: 10px">
+												<div class="col-sm-8 form-inline">
+													<input class="form-control"
+																 type="text"
+																 placeholder="Filtrar">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox">
+															Incluir Sub-temas
+														</label>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<ul class="btn-group pagination pull-right" style="margin: 0px">
+														<li>
+															<a href="#" aria-label="Previous">
+																<span aria-hidden="true">&laquo;</span>
+															</a>
+														</li>
+														<li><a href="#">1</a></li>
+														<li><a href="#">2</a></li>
+														<li>
+															<a href="#" aria-label="Next">
+																<span aria-hidden="true">&raquo;</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<!-- Table -->
+											<table class="table">
+												<tr>
+													<th class="text-right"></th>
+													<th>Título</th>
+													<th class="text-center">
+														Sub-temas
+													</th>
+												</tr>
+												<tr data-ng-repeat="theme in ['C','C++','Java','JavaScript','Lua']">
+													<td class="text-right">
+														<a class="label label-default"
+															 data-dismiss="modal">{{theme}}</a>
+													</td>
+													<td>
+														Linguagem de programação {{theme}}
+													</td>
+													<td class="text-center">
+														<a class="badge"
+															 data-ng-if="($index%2)===0">
+															{{theme.length}}
+														</a>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+								<!-- Create -->
+								<div class="panel panel-default">
+									<div class="panel-heading"
+											 role="tab" id="headingCreate"
+											 data-toggle="collapse"
+											 data-parent="#accordion"
+											 data-target="#collapseCreateTheme">
+										Criar
+									</div>
+									<div id="collapseCreateTheme"
+											 class="panel-collapse collapse"
+											 role="tabpanel"
+											 aria-labelledby="headingCreate">
+										<div class="panel-body form-horizontal">
+											<div class="form-group">
+												<label class="col-sm-1 control-label" for="inputAcronym">Sigla</label>
+												<div class="col-sm-11">
+													<input class="form-control"
+																 type="text"
+																 id="inputAcronym"
+																 placeholder="Sigla">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-1 control-label" for="inputName">Nome</label>
+												<div class="col-sm-11">
+													<input class="form-control"
+																 type="text"
+																 id="inputName"
+																 placeholder="Nome">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-1 control-label" for="inputDesc">Desc.</label>
+												<div class="col-sm-11">
+													<textarea class="form-control"
+																		id="inputDesc"
+																		placeholder="Descrição">
+													</textarea>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-offset-1 col-sm-11">
+													<button type="button"
+																	class="btn btn-primary"
+																	data-dismiss="modal">
+														Adicionar
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+		</div>
+	</body>
+</html>

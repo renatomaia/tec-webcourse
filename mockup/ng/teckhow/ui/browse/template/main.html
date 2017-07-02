@@ -1,0 +1,76 @@
+<ul class="nav nav-tabs">
+	<li role="presentation" data-ui-sref-active="active"><a data-ui-sref="browse.search">Buscar</a></li>
+	<li role="presentation" data-ui-sref-active="active"><a data-ui-sref="browse.themes">Assuntos</a></li>
+	<li role="presentation" data-ui-sref-active="active"><a data-ui-sref="browse.projects">Projetos</a></li>
+</ul>
+<ui-view></ui-view>
+
+<!-- Modal -->
+<div class="modal fade" id="foundModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div class="media">
+					<div class="media-left media-top">
+						<a href="#">
+							<img class="media-object"
+									 height="105px"
+									 src="https://gymkhana.iitb.ac.in/~sports/images/profile.png"
+									 alt="...">
+						</a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading modal-title">
+							Fulana da Silva<br>
+							<small>fulanasilva@tecgraf.puc-rio.br</small>
+						</h4>
+						<nav>
+							<ul class="pager">
+								<li class="previous"><a>&larr; Anterior</a></li>
+								<li class="next"><a>Próximo &rarr;</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<div class="modal-body">
+				<h3>
+					Curso de Web Fron-End<br>
+					<small>Mar/2017 - Jul/2017</small>
+				</h3>
+				<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+				<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col-xs-2">
+						<strong>Assuntos:</strong>
+					</div>
+					<div class="col-xs-10">
+						<span class="label label-default"
+									style="display: inline-block"
+									data-toggle="popover"
+									title="Tecnologia Web de nome {{theme}}"
+									data-content="Alguma descrição bem longa e detalhada, se possível incluindo palavras-chave sobre o assunto {{theme}}."
+									data-ng-repeat="theme in ['AngularJS1', 'Bootstrap', 'CSS3', 'HTML5', 'JavaScript']">
+							{{theme}}
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-2">
+						<strong>Projetos:</strong>
+					</div>
+					<div class="col-xs-10">
+						<span class="label label-info"
+									style="display: inline-block"
+									data-ng-repeat="theme in ['TecKHow']">
+							{{theme}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
