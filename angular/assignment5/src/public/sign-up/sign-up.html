@@ -2,38 +2,52 @@
   <h2 class="text-center">
     Newsletter Sign Up
   </h2>
-  <fieldset>
-    <legend>Sign Up Form:</legend>
-    <form name="signUpForm" novalidate>
-      <input type="text"
+  <form name="signUpForm" novalidate>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input class="form-control"
+             type="text"
              name="firstName"
+             id="firstName"
              ng-model="$ctrl.firstName"
              placeholder="First Name"
              required>
       <span ng-if="signUpForm.firstName.$touched && signUpForm.firstName.$error.required">
         First name is required.
       </span>
-      <br>
-      <input type="text"
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input class="form-control"
+             type="text"
              name="lastName"
+             id="lastName"
              ng-model="$ctrl.lastName"
              placeholder="Last Name"
              required>
       <span ng-if="signUpForm.lastName.$touched && signUpForm.lastName.$error.required">
         Last name is required.
       </span>
-      <br>
-      <input type="email"
+    </div>
+    <div class="form-group">
+      <label for="eMail">eMail</label>
+      <input class="form-control"
+             type="email"
              name="eMail"
+             id="eMail"
              ng-model="$ctrl.eMail"
              placeholder="eMail Address"
              required>
       <span ng-if="signUpForm.eMail.$touched && signUpForm.eMail.$invalid">
         Provided email address is invalid.
       </span>
-      <br>
-      <input type="tel"
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input class="form-control"
+             type="tel"
              name="phone"
+             id="phone"
              ng-model="$ctrl.phone"
              placeholder="Phone Number"
              pattern="(\d{3})-(\d{3})-(\d{4})"
@@ -41,23 +55,28 @@
       <span ng-if="signUpForm.phone.$touched && (signUpForm.phone.$error.required || signUpForm.phone.$error.pattern)">
         Phone must be in the format ###-###-####.
       </span>
-      <br>
-      <input type="text"
+    </div>
+    <div class="form-group">
+      <label for="dish">Favorite Dish</label>
+      <input class="form-control"
+             type="text"
              name="dish"
+             id="dish"
              ng-model="$ctrl.dishId"
-             ng-blur="$ctrl.validateDish()"
+             ng-change="$ctrl.validateDish()"
              placeholder="Favorite Dish"
              required>
       <span ng-if="signUpForm.dish.$touched && (signUpForm.dish.$error.required || $ctrl.invalidDish)">
         No such menu number exists.
       </span>
-      <br>
-      <button ng-disabled="signUpForm.$invalid || $ctrl.invalidDish"
-              ng-click="$ctrl.submitData()">Save</button>
-      <span ng-if="$ctrl.saved">
-        Your information has been saved.
-      </span>
-    </form>
-  </fieldset>
+    </div>
+    <button class="btn btn-default"
+            type="submit"
+            ng-disabled="signUpForm.$invalid || $ctrl.invalidDish"
+            ng-click="$ctrl.submitData()">Save</button>
+    <span ng-if="$ctrl.saved">
+      Your information has been saved.
+    </span>
+  </form>
 </div>
 

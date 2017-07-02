@@ -11,15 +11,9 @@ function NewsletterRegistryService($http, ApiPath) {
   var savedData;
 
   service.getMenuItem = function (short_name) {
-    var url = ApiPath + '/menu_items.json';
+    var url = ApiPath + '/menu_items/' + short_name + ".json";
     return $http.get(url).then(function (response) {
-      var allitems = response.data.menu_items;
-      for (var i=0; i<allitems.length; ++i) {
-        if (allitems[i].short_name === short_name) {
-          return allitems[i];
-        }
-      }
-      return undefined;
+      return response.data;
     }, function (reason) {
       console.log('failed to retrieve \''+url+'\':', reason);
       return undefined;
